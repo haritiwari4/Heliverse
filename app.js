@@ -5,10 +5,12 @@ const morgan = require("morgan");
 const apicache = require("apicache");
 const mongoose = require("mongoose");
 const quizRoute = require("./routes/quiz");
-app.use(bodyParser.json());
-
 const Quiz = require("./models/quiz");
 const cron = require("node-cron");
+
+
+
+app.use(bodyParser.json());
 cron.schedule("* * * * *", async () => {
   const quizzes = await Quiz.find();
 
