@@ -41,11 +41,10 @@ app.use((req, res, next) => {
 
 app.use(quizRoute);
 mongoose.connect(
-  "mongodb+srv://haritiwari442:cVy46VtGieeCFEXd@cluster0.wbgnnv6.mongodb.net/heliverse"
-  //`${process.env.MONGO_URL}`
+  `${process.env.MONGO_URL}`
 );
 app.use((error, req, res, next) => {
   res.json({ error: error, message: error.message });
 });
-//app.listen(process.env.PORT || 3000);
-app.listen(8080);
+app.listen(process.env.PORT || 8080);
+
